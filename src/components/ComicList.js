@@ -15,11 +15,11 @@ class ComicList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${config.corsApi}/${config.apiUrl}/issues`, {
+        axios.get(`${config.apiUrl}/issues`, {
             params: {
                 api_key: config.apiKey,
                 format: 'json',
-                limit: 8
+                limit: 20
             }
         })
         .then(response => {
@@ -36,21 +36,8 @@ class ComicList extends Component {
         })
     }
 
-    issueDetails = (id) => {
-        axios.get(`${config.corsApi}/${config.apiUrl}/issues`, {
-            params: {
-                api_key: config.apiKey,
-                format: 'json',
-                filter: `id:${id}`
-            }
-        })
-        .then(response => {
-            let api_detail_url = response.data.results.api_detail_url
-            // mandar el url por medio del props al ComicDetail
-        })
-        .catch(error => {
+    issueDetails(api_detail_url) {
 
-        })
     }
 
     render() {
@@ -59,10 +46,10 @@ class ComicList extends Component {
                 {this.state.items.map(item => {
                     return <div className="row my-3 border-bottom text-center align-items-center">
                         <div className="col pb-3">
-                            <a onClick={this.issueDetails(item.id)}><img className="img-fluid" src={item.image.small_url} alt="" /></a>
+                            <a onClick={() => this.issueDetails(item.api_detail_url)}><img className="img-fluid" src={item.image.small_url} alt="" /></a>
                         </div>
                         <div className="col">
-                            <a onClick={this.issueDetails(item.id)} className="text-dark"><b>{item.volume.name + ' #' + item.issue_number}</b></a><br/>
+                            <a onClick={() => this.issueDetails(item.api_detail_url)} className="text-dark"><b>{item.volume.name + ' #' + item.issue_number}</b></a><br/>
                             <small className="text-muted">{moment(item.date_added, 'YYYY-MM-DD').format('MMMM DD, YYYY')}</small>
                         </div>
                     </div>
