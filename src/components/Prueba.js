@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Prueba() {
-    return (
-        <div>
-            <h1>funciona</h1>
-        </div>
-    )
+export default class Prueba extends Component {
+
+    render() {
+        return (
+            <div>
+                <h1>Hola {this.props.name}!</h1>
+            </div>
+        )
+    }
 }

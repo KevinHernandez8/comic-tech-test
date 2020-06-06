@@ -17,8 +17,13 @@ class ComicDetail extends Component {
     }
 
     componentDidMount() {
-        // axios.get(`${config.corsApi}/${config.apiUrl}/issues/${this.props.}`)
-        axios.get(`${config.corsApi}/https://comicvine.gamespot.com/api/issue/4000-6?api_key=6f7e42c1a04a1903ca5c2a635e441781e12a537b&format=json`)
+        const { api_detail_url } = this.props.location.state
+        axios.get(`${config.corsApi}/${api_detail_url}`, {
+             params: {
+                 api_key: config.apiKey,
+                format: 'json',
+             }
+        })
         .then(response => {
             this.setState({
                 imageUrl: response.data.results.image.original_url,
