@@ -20,7 +20,7 @@ class ComicDetail extends Component {
         const { api_detail_url } = this.props.location.state
         axios.get(`${config.corsApi}/${api_detail_url}`, {
              params: {
-                 api_key: config.apiKey,
+                api_key: config.apiKey,
                 format: 'json',
              }
         })
