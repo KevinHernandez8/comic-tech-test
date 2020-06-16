@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { config } from '../Config';
+import config from '../../config';
 import axios from 'axios';
 import moment from 'moment';
 

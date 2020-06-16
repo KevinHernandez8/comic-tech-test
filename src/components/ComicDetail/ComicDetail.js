@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { config } from '../Config';
+import config from '../../config';
 import axios from 'axios';
 
 

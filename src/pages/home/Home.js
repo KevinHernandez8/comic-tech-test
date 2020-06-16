@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListUl } from '@fortawesome/free-solid-svg-icons';
 import { faGripHorizontal } from '@fortawesome/free-solid-svg-icons';
 
-import ComicGrid from './ComicGrid'
-import ComicList from './ComicList'
-import ComicDetail from './ComicDetail';
-import Tittle from './Tittle';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import ComicGrid from '../../components/ComicGrid'
+import ComicList from '../../components/ComicList'
+import ComicDetail from '../../components/ComicDetail';
+import Tittle from '../../components/shared/Tittle';
 
 export default class Home extends Component {
     
